@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  
+      - main  # замініть на правильну гілку вашого репозиторію
 
 jobs:
   build-and-deploy:
@@ -16,16 +16,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.18.0'  
+          node-version: '20.18.0'  # Замініть на відповідну версію Node.js, яку використовує ваш проект
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build  
+        run: npm run build  # Переконайтесь, що команда збірки правильна
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  
+          publish_dir: ./dist  # Вкажіть правильну папку, яка містить зібрані файли
